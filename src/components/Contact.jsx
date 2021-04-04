@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getMyInfos } from "./../service/myInfoService";
+import { postMessage } from "./../service/contactService";
+import { toast } from "react-toastify";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -16,9 +18,16 @@ const Contact = () => {
     loadData();
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(name, email, message);
+    const { status } = await postMessage({ name, email, message });
+
+    if (status === 200) {
+      toast.dark("message was sent");
+      setName("");
+      setEmail("");
+      setMessage("");
+    } else toast.error("ops! message wasn't sent");
   };
 
   return (
