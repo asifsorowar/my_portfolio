@@ -35,7 +35,6 @@ function App() {
     setLoaded(false);
     load();
     loadHeaderData();
-    setLoaded(true);
   }, []);
 
   useEffect(() => {
@@ -56,33 +55,31 @@ function App() {
         loaded={loaded}
         className="spinner"
         opacity={0.5}
-        options={{ scale: 8 }}
+        options={{ scale: 6, top: "50%", left: "22%" }}
       />
-      {loaded && (
-        <div>
-          <ScrollButton show={showScroll} />
-          <Switch>
-            <Route exact path="/">
-              <SEO title="Home" />
-              <Menu reloadScript={setScriptReset} reload={scriptReset} />
-              <Header info={info} profileP={profileP} />
-              <About />
-              <Resume />
-              <Portfolio />
-              <Contact />
-            </Route>
-            <Route path="/blog">
-              <SEO title="Blog" />
-              <BlogMenu
-                style={{ color: "darkgray" }}
-                reloadScript={setScriptReset}
-                reload={scriptReset}
-              />
-              <Blog />
-            </Route>
-          </Switch>
-        </div>
-      )}
+      <div>
+        <ScrollButton show={showScroll} />
+        <Switch>
+          <Route exact path="/">
+            <SEO title="Home" />
+            <Menu reloadScript={setScriptReset} reload={scriptReset} />
+            <Header info={info} profileP={profileP} setLoaded={setLoaded} />
+            <About />
+            <Resume />
+            <Portfolio />
+            <Contact />
+          </Route>
+          <Route path="/blog">
+            <SEO title="Blog" />
+            <BlogMenu
+              style={{ color: "darkgray" }}
+              reloadScript={setScriptReset}
+              reload={scriptReset}
+            />
+            <Blog />
+          </Route>
+        </Switch>
+      </div>
     </>
   );
 }

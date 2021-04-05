@@ -1,6 +1,6 @@
 import React from "react";
 
-const Header = ({ info, profileP }) => {
+const Header = ({ info, profileP, setLoaded }) => {
   console.log(process.env.REACT_APP_API_URL + profileP);
 
   return (
@@ -19,8 +19,10 @@ const Header = ({ info, profileP }) => {
           <div className="col-md-4 personal-profile__avatar">
             <img
               className=""
+              style={{ objectFit: "cover", width: "100%", height: "100%" }}
               src={process.env.REACT_APP_API_URL + profileP}
-              alt="avatar"
+              alt="asif-sorowar-profile"
+              onLoad={setLoaded(true)}
             />
           </div>
           <div className="col-md-8">
