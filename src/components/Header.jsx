@@ -1,12 +1,14 @@
 import React from "react";
-import { apiUrl } from "../config.json";
 
 const Header = ({ info, profileP }) => {
+  console.log(process.env.REACT_APP_API_URL + profileP);
+
   return (
     <div
       className="main-header"
       style={{
-        backgroundImage: "url(" + apiUrl + profileP + ")",
+        backgroundImage:
+          "url(" + process.env.REACT_APP_API_URL + profileP + ")",
         backgroundPosition: "center -250px",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
@@ -15,7 +17,11 @@ const Header = ({ info, profileP }) => {
       <div className="container">
         <div className="row personal-profile">
           <div className="col-md-4 personal-profile__avatar">
-            <img className="" src={apiUrl + profileP} alt="avatar" />
+            <img
+              className=""
+              src={process.env.REACT_APP_API_URL + profileP}
+              alt="avatar"
+            />
           </div>
           <div className="col-md-8">
             <p className="personal-profile__name">Asif Sorowar</p>

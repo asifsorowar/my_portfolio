@@ -1,7 +1,6 @@
 import http from "./http";
-import { apiUrl } from "../config.json";
 
-const apiEndPoint = apiUrl + "/about-me";
+const apiEndPoint = "/about-me";
 
 export const getAboutDesc = () => {
   return http.get(apiEndPoint);

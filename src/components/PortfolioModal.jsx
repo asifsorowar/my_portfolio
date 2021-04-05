@@ -1,5 +1,4 @@
 import React from "react";
-import { apiUrl } from "../config.json";
 
 const PortfolioModal = ({ project, setSelectedProject }) => {
   return (
@@ -27,7 +26,7 @@ const PortfolioModal = ({ project, setSelectedProject }) => {
             <p className="portfolio-modal__title">{project.name}</p>
             <img
               className="portfolio-modal__img"
-              src={apiUrl + project.image.url}
+              src={process.env.REACT_APP_API_URL + project.image.url}
               alt="modal_img"
             />
             <p className="portfolio-modal__description">{project.desc}</p>

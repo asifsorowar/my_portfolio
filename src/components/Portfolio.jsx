@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { getCatagories, getProjects } from "./../service/projectsService";
-import { apiUrl } from "../config.json";
 import PortfolioModal from "./PortfolioModal";
 
 const Portfolio = () => {
@@ -77,7 +76,7 @@ const Portfolio = () => {
               <div className="col-md-6 col-lg-5 project-card__img">
                 <img
                   className=""
-                  src={apiUrl + project.image.url}
+                  src={process.env.REACT_APP_API_URL + project.image.url}
                   alt="project-img"
                 />
               </div>

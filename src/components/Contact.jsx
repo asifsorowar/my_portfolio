@@ -33,7 +33,10 @@ const Contact = () => {
   return (
     <div
       className="background"
-      style={{ backgroundImage: "url(assets/img/img_bg_main.jpg)" }}
+      style={{
+        backgroundImage:
+          "url(" + process.env.PUBLIC_URL + "/img/background.jpg)",
+      }}
     >
       <div id="contact" className="container section">
         <div className="row">

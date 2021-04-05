@@ -1,5 +1,4 @@
 import React from "react";
-import { apiUrl } from "../config.json";
 
 const BlogDetail = ({ blog, setBlog }) => {
   return (
@@ -33,7 +32,7 @@ const BlogDetail = ({ blog, setBlog }) => {
               <figure>
                 <img
                   className=""
-                  src={apiUrl + blog.image[0].url}
+                  src={process.env.REACT_APP_API_URL + blog.image[0].url}
                   alt="blog_image"
                 />
                 <figcaption>{blog.figCaption}</figcaption>

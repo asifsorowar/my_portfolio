@@ -1,18 +1,17 @@
 import http from "./http";
-import { apiUrl } from "../config.json";
 
-const apiEndPoint = apiUrl + "/my-infos";
+const apiEndPoint = "/my-infos";
 
 export const getMyInfos = () => {
   return http.get(apiEndPoint);
 };
 
 export const getMyProfilePicture = () => {
-  const apiEndPoint = apiUrl + "/profile-picture";
+  const apiEndPoint = "/profile-picture";
   return http.get(apiEndPoint);
 };
 
 export const getCv = () => {
-  const apiEndPoint = apiUrl + "/cv";
+  const apiEndPoint = "/cv";
   return http.get(apiEndPoint);
 };

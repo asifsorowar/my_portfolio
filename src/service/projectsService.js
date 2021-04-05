@@ -1,13 +1,12 @@
 import http from "./http";
-import { apiUrl } from "../config.json";
 
 export const getCatagories = () => {
-  const apiEndPoint = apiUrl + "/project-catergories";
+  const apiEndPoint = "/project-catergories";
   return http.get(apiEndPoint);
 };
 
 export const getProjects = () => {
-  const apiEndPoint = apiUrl + "/projects";
+  const apiEndPoint = "/projects";
   return http.get(apiEndPoint);
 };
 

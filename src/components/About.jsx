@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { getCv } from "./../service/myInfoService";
-import { apiUrl } from "../config.json";
 
 const About = () => {
   const [cvUrl, setCvUrl] = useState("");
@@ -32,7 +31,7 @@ const About = () => {
             scripting languages and multimedia Web tools.
           </p>
           <a
-            href={apiUrl + cvUrl}
+            href={process.env.REACT_APP_API_URL + cvUrl}
             target="_blank"
             rel="noreferrer"
             className="section_btn site-btn"

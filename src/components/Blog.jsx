@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { loadBlogs } from "./../service/blogService";
 import Loader from "react-loader";
-import { apiUrl } from "../config.json";
 import BlogDetail from "./BlogDetail";
 import _ from "lodash";
 
@@ -60,7 +59,10 @@ const Blog = () => {
             >
               <div className="post-cards__card">
                 <div className="post-cards__img">
-                  <img src={apiUrl + blog.image[0].url} alt="blog_img" />
+                  <img
+                    src={process.env.REACT_APP_API_URL + blog.image[0].url}
+                    alt="blog_img"
+                  />
                 </div>
                 <div className="post-cards__info">
                   <p className="post-cards__date">
