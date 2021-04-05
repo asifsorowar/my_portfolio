@@ -9,7 +9,7 @@ const Header = ({ info, profileP, setLoaded }) => {
       style={{
         backgroundImage:
           "url(" + process.env.REACT_APP_API_URL + profileP + ")",
-        backgroundPosition: "center -250px",
+        backgroundPosition: "center -25px",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}

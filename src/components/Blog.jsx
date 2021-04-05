@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { loadBlogs } from "./../service/blogService";
-import Loader from "react-loader";
 import BlogDetail from "./BlogDetail";
 import _ from "lodash";
 
-const Blog = () => {
+const Blog = ({ setLoaded }) => {
   const [blogs, setBlogs] = useState([]);
-  const [loaded, setLoaded] = useState(false);
   const [selectedBlog, setSelectedBlog] = useState(null);
 
   const loadData = async () => {
@@ -27,13 +25,6 @@ const Blog = () => {
 
   return (
     <>
-      <Loader
-        loaded={loaded}
-        className="spinner"
-        opacity={0.5}
-        options={{ scale: 8 }}
-      />
-
       <section
         id="blog"
         className="container section "
@@ -60,7 +51,7 @@ const Blog = () => {
               <div className="post-cards__card">
                 <div className="post-cards__img">
                   <img
-                    src={process.env.REACT_APP_API_URL + blog.image[0].url}
+                    src={process.env.REACT_APP_API_URL + blog.image[0]?.url}
                     alt="blog_img"
                   />
                 </div>

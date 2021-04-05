@@ -55,7 +55,11 @@ function App() {
         loaded={loaded}
         className="spinner"
         opacity={0.5}
-        options={{ scale: 6, top: "50%", left: "22%" }}
+        options={{
+          scale: 6,
+          top: "50%",
+          left: "50%",
+        }}
       />
       <div>
         <ScrollButton show={showScroll} />
@@ -76,7 +80,7 @@ function App() {
               reloadScript={setScriptReset}
               reload={scriptReset}
             />
-            <Blog />
+            <Blog setLoaded={setLoaded} />
           </Route>
         </Switch>
       </div>
