@@ -1,44 +1,36 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Menu = ({ style, reloadScript, reload }) => {
+const BlogMenu = ({ style, reloadScript, reload }) => {
   return (
     <React.Fragment>
-      <div className="menu nav-dark">
+      <div className="menu">
         <div className="container">
           <div className="row">
             <div className="menu__wrapper d-none d-lg-block col-md-12">
               <nav className="">
                 <ul>
                   <li>
-                    <a href="#about" style={{ ...style }}>
-                      About
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#resume" style={{ ...style }}>
-                      Resume
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#portfolio" style={{ ...style }}>
+                    <Link
+                      to="/"
+                      style={{ ...style }}
+                      onClick={() => reloadScript(reload + 1)}
+                    >
                       Portfolio
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <Link
                       to="/blog"
-                      className="blogNav"
-                      style={{ ...style }}
+                      style={{
+                        ...style,
+                        color: "#4a4a4a",
+                        textDecoration: "underline",
+                      }}
                       onClick={() => reloadScript(reload + 1)}
                     >
                       blog
                     </Link>
-                  </li>
-                  <li>
-                    <a href="#contact" style={{ ...style }}>
-                      Contact
-                    </a>
                   </li>
                 </ul>
               </nav>
@@ -47,6 +39,7 @@ const Menu = ({ style, reloadScript, reload }) => {
               <button
                 type="button"
                 className="menu__mobile-button"
+                style={{ ...style, color: "#4a4a4a" }}
                 onClick={() => reloadScript(reload + 1)}
               >
                 <span>
@@ -71,21 +64,22 @@ const Menu = ({ style, reloadScript, reload }) => {
           <nav className="mobile-menu__wrapper">
             <ul>
               <li>
-                <a href="#about">About</a>
-              </li>
-              <li>
-                <a href="#resume">Resume</a>
-              </li>
-              <li>
-                <a href="#portfolio">Portfolio</a>
-              </li>
-              <li>
-                <Link to="/blog" onClick={() => reloadScript(reload + 1)}>
-                  blog
+                <Link
+                  to="/"
+                  style={{ ...style }}
+                  onClick={() => reloadScript(reload + 1)}
+                >
+                  Portfolio
                 </Link>
               </li>
               <li>
-                <a href="#contact">Contact</a>
+                <Link
+                  to="/blog"
+                  style={{ ...style, color: "#4a4a4a" }}
+                  onClick={() => reloadScript(reload + 1)}
+                >
+                  blog
+                </Link>
               </li>
             </ul>
           </nav>
@@ -95,4 +89,4 @@ const Menu = ({ style, reloadScript, reload }) => {
   );
 };
 
-export default Menu;
+export default BlogMenu;

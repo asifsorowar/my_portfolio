@@ -2,7 +2,6 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Inconsolata");
 @import url("https://cdn.materialdesignicons.com/2.0.46/css/materialdesignicons.min.css");
 
-
 @media print {
   *,
   :after,
@@ -10992,11 +10991,6 @@ input[type="number"]::-webkit-outer-spin-button {
   z-index: -1;
 }
 .article {
-  background-color: #fff;
-  padding: 50px 70px 60px;
-  margin-top: -270px;
-  box-shadow: 0 1px 21px rgba(0, 0, 0, 0.14);
-  margin-bottom: 40px;
 }
 .article .article__back-link {
   font-size: 12px;
@@ -11063,7 +11057,6 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 @media screen and (max-width: 576px) {
   .article {
-    padding: 30px 10px 40px;
   }
 }
 .posts .posts__item {

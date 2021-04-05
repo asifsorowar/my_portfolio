@@ -94,6 +94,7 @@ const Portfolio = () => {
                 <a
                   href={project.url}
                   target="_blank"
+                  rel="noreferrer"
                   className="project-card__link"
                 >
                   {project.url}

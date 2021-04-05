@@ -32,7 +32,9 @@ const PortfolioModal = ({ project, setSelectedProject }) => {
             />
             <p className="portfolio-modal__description">{project.desc}</p>
             <div className="portfolio-modal__link">
-              <a href={project.url}>{project.url}</a>
+              <a href={project.url} target="_blank" rel="noreferrer">
+                {project.url}
+              </a>
             </div>
             <div className="portfolio-modal__stack">
               <p className="portfolio-modal__stack-title">Using stack:</p>

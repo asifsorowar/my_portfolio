@@ -12,7 +12,6 @@ const ScrollButton = ({ show }) => {
         height: "40px",
         borderRadius: "50%",
         zIndex: 999,
-        boxShadow: "0 10px 10px -5px;",
         textAlign: "center",
         display: "flex",
         justifyContent: "center",

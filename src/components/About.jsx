@@ -1,7 +1,21 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { getCv } from "./../service/myInfoService";
+import { apiUrl } from "../config.json";
 
 const About = () => {
+  const [cvUrl, setCvUrl] = useState("");
+
+  const loadData = async () => {
+    const {
+      data: { cv },
+    } = await getCv();
+    setCvUrl(cv.url);
+  };
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
   return (
     <section id="about" className="container section">
       <div className="row">
@@ -17,10 +31,15 @@ const About = () => {
             hard worker and team player who is proficient in an array of
             scripting languages and multimedia Web tools.
           </p>
-          <Link to="" className="section_btn site-btn">
-            <img src="assets/img/img_btn_icon.png" alt="" />
+          <a
+            href={apiUrl + cvUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="section_btn site-btn"
+          >
+            <img src={process.env.PUBLIC_URL + "img/img_btn_icon.png"} alt="" />
             Download CV
-          </Link>
+          </a>
         </div>
       </div>
     </section>

@@ -1,23 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import { apiUrl } from "../config.json";
-import { getMyInfos, getMyProfilePicture } from "./../service/myInfoService";
 
-const Header = () => {
-  const [info, setInfo] = useState({});
-  const [profileP, setProfileP] = useState("");
-
-  const loadData = async () => {
-    const { data: info } = await getMyInfos();
-    setInfo(info[0]);
-    const { data: image } = await getMyProfilePicture();
-    setProfileP(image.picture[0].url);
-  };
-
-  useEffect(() => {
-    loadData();
-  }, []);
-
+const Header = ({ info, profileP }) => {
   return (
     <div
       className="main-header"
@@ -42,29 +26,38 @@ const Header = () => {
                 <dd>{new Date().getFullYear() - 1997}</dd>
                 <dt>Phone:</dt>
                 <dd>
-                  <Link to={"tel:" + info.phone}>{info.phone}</Link>
+                  <a href={"tel:" + info.phone}>{info.phone}</a>
                 </dd>
                 <dt>Email:</dt>
                 <dd>
-                  <Link to={"mailto:" + info.email}>{info.email}</Link>
+                  <a href={"mailto:" + info.email}>{info.email}</a>
                 </dd>
                 <dt>Address:</dt>
                 <dd>{info.address}</dd>
               </dl>
             </div>
             <p className="personal-profile__social">
-              <Link to="https://github.com/asifsorowar" target="_blank">
-                <i className="fa fa-github"></i>
-              </Link>
-              <Link
-                to="https://www.linkedin.com/in/asif-sorowar-222609168"
+              <a
+                href="https://github.com/asifsorowar"
                 target="_blank"
+                rel="noreferrer"
+              >
+                <i className="fa fa-github"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/asif-sorowar-222609168"
+                target="_blank"
+                rel="noreferrer"
               >
                 <i className="fa fa-linkedin-square"></i>
-              </Link>
-              <Link to="https://www.facebook.com/asif.oyen" target="_blank">
+              </a>
+              <a
+                href="https://www.facebook.com/asif.oyen"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <i className="fa fa-facebook-square"></i>
-              </Link>
+              </a>
             </p>
           </div>
         </div>

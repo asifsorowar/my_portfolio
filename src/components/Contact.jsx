@@ -69,6 +69,7 @@ const Contact = () => {
                   <a
                     href="https://www.facebook.com/asif.oyen"
                     target="_blank"
+                    rel="noreferrer"
                     style={{ textDecoration: "none" }}
                   >
                     Facebook
@@ -78,6 +79,7 @@ const Contact = () => {
                   <a
                     href="https://www.linkedin.com/in/asif-sorowar-222609168"
                     target="_blank"
+                    rel="noreferrer"
                     style={{ textDecoration: "none" }}
                   >
                     Linkedin
@@ -87,6 +89,7 @@ const Contact = () => {
                   <a
                     href="https://github.com/asifsorowar"
                     target="_blank"
+                    rel="noreferrer"
                     style={{ textDecoration: "none" }}
                   >
                     GitHub
@@ -96,6 +99,7 @@ const Contact = () => {
                   <a
                     href="https://www.instagram.com/asif_oyen"
                     target="_blank"
+                    rel="noreferrer"
                     style={{ textDecoration: "none" }}
                   >
                     Instagram
@@ -116,6 +120,7 @@ const Contact = () => {
                     type="text"
                     placeholder="Your name"
                     onChange={(e) => setName(e.target.value)}
+                    value={name}
                     required
                   />
                   <span className="form-validation"></span>
@@ -129,6 +134,7 @@ const Contact = () => {
                     type="email"
                     placeholder="Your e-mail"
                     onChange={(e) => setEmail(e.target.value)}
+                    value={email}
                     required
                   />
                   <span className="form-validation"></span>
@@ -141,6 +147,7 @@ const Contact = () => {
                     className="form-field js-field-message"
                     placeholder="Type the message here"
                     onChange={(e) => setMessage(e.target.value)}
+                    value={message}
                     required
                   ></textarea>
                   <span className="form-validation"></span>
