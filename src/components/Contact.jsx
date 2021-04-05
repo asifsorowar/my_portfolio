@@ -23,11 +23,11 @@ const Contact = () => {
     const { status } = await postMessage({ name, email, message });
 
     if (status === 200) {
-      toast.dark("message was sent");
+      toast.dark("message was sent successfully");
       setName("");
       setEmail("");
       setMessage("");
-    } else toast.error("ops! message wasn't sent");
+    } else toast.error("ops! message wasn't sent, try again");
   };
 
   return (
