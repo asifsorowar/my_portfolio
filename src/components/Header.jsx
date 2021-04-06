@@ -31,11 +31,11 @@ const Header = ({ info, profileP, setLoaded }) => {
                 <dd>{new Date().getFullYear() - 1997}</dd>
                 <dt>Phone:</dt>
                 <dd>
-                  <a href={"tel:" + info.phone}>{info.phone}</a>
+                  <a href={"tel:" + info.phone}>{info?.phone}</a>
                 </dd>
                 <dt>Email:</dt>
                 <dd>
-                  <a href={"mailto:" + info.email}>{info.email}</a>
+                  <a href={"mailto:" + info.email}>{info?.email}</a>
                 </dd>
                 <dt>Address:</dt>
                 <dd>{info.address}</dd>

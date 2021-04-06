@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { getCv } from "./../service/myInfoService";
+import { getMyInfos } from "../service/myInfoService";
 
 const About = () => {
-  const [cvUrl, setCvUrl] = useState("");
+  const [cv, setCv] = useState(null);
+  const [info, setInfo] = useState(null);
 
   const loadData = async () => {
-    const {
-      data: { cv },
-    } = await getCv();
-    setCvUrl(cv.url);
+    const { data: cv } = await getCv();
+
+    const { data: info } = await getMyInfos();
+    setCv(cv);
+    setInfo(info[0]);
   };
 
   useEffect(() => {
@@ -22,16 +25,9 @@ const About = () => {
           <h2 id="hello_header" className="section__title">
             Hi_
           </h2>
-          <p className="section__description">
-            I am Junior Web developer able to build a Web presence from the
-            ground up - from concept, navigation, layout and programming to UX
-            and SEO. Skilled at writing well-designed, testable and efficient
-            code using current best practices in Web development. Fast learner,
-            hard worker and team player who is proficient in an array of
-            scripting languages and multimedia Web tools.
-          </p>
+          <p className="section__description">{info?.about_me}</p>
           <a
-            href={cvUrl}
+            href={cv?.url}
             target="_blank"
             rel="noreferrer"
             className="section_btn site-btn"

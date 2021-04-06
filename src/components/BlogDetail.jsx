@@ -28,7 +28,7 @@ const BlogDetail = ({ blog, setBlog }) => {
               <p className="article_date">
                 {new Date(blog.published_at).toDateString()}
               </p>
-              <p>{blog.desc.substr(0, 160)}</p>
+              <p>{blog.desc?.substr(0, 160)}</p>
               <figure>
                 <img className="" src={blog.image[0]?.url} alt="blog_image" />
                 <figcaption>{blog.figCaption}</figcaption>

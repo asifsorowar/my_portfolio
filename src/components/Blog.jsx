@@ -42,23 +42,23 @@ const Blog = ({ setLoaded }) => {
         </div>
 
         <div className="row post-cards">
-          {blogs.map((blog) => (
+          {blogs?.map((blog) => (
             <div
-              key={blog.id}
+              key={blog?.id}
               className="col-md-4"
               onClick={() => setSelectedBlog(blog)}
             >
               <div className="post-cards__card">
                 <div className="post-cards__img">
-                  <img src={blog.image[0]?.url} alt="blog_img" />
+                  <img src={blog?.image[0]?.url} alt="blog_img" />
                 </div>
                 <div className="post-cards__info">
                   <p className="post-cards__date">
-                    {new Date(blog.published_at).toDateString()}
+                    {new Date(blog?.published_at).toDateString()}
                   </p>
-                  <h3 className="post-cards_title">{blog.title}</h3>
+                  <h3 className="post-cards_title">{blog?.title}</h3>
                   <p className="post-cards_description">
-                    {shortText(blog.desc)}
+                    {shortText(blog?.desc)}
                   </p>
                 </div>
               </div>
