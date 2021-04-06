@@ -23,7 +23,7 @@ const PortfolioModal = ({ project, setSelectedProject }) => {
             </button>
           </div>
           <div className="modal-body col-md-11 col-lg-9 ml-auto mr-auto">
-            <p className="portfolio-modal__title">{project.name}</p>
+            <p className="portfolio-modal__title">{project.title}</p>
             <img
               className="portfolio-modal__img"
               src={project.image.url}

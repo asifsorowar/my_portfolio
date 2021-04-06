@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getCatagories, getProjects } from "./../service/projectsService";
 import PortfolioModal from "./PortfolioModal";
+import _ from "lodash";
 
 const Portfolio = () => {
   const [projectCategories, setProjectCategories] = useState([]);
@@ -12,7 +13,8 @@ const Portfolio = () => {
     const { data: categories } = await getCatagories();
     setProjectCategories([{ name: "All" }, ...categories]);
     const { data: projects } = await getProjects();
-    setProjects(projects);
+    const shuffledProjects = _.shuffle(projects);
+    setProjects(shuffledProjects);
   };
 
   useEffect(() => {

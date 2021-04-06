@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Menu = ({ style, reloadScript, reload }) => {
+const Menu = ({ style }) => {
   return (
     <React.Fragment>
       <div className="menu nav-dark">
