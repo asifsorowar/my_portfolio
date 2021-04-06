@@ -50,10 +50,7 @@ const Blog = ({ setLoaded }) => {
             >
               <div className="post-cards__card">
                 <div className="post-cards__img">
-                  <img
-                    src={process.env.REACT_APP_API_URL + blog.image[0]?.url}
-                    alt="blog_img"
-                  />
+                  <img src={blog.image[0]?.url} alt="blog_img" />
                 </div>
                 <div className="post-cards__info">
                   <p className="post-cards__date">

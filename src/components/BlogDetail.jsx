@@ -30,11 +30,7 @@ const BlogDetail = ({ blog, setBlog }) => {
               </p>
               <p>{blog.desc.substr(0, 160)}</p>
               <figure>
-                <img
-                  className=""
-                  src={process.env.REACT_APP_API_URL + blog.image[0].url}
-                  alt="blog_image"
-                />
+                <img className="" src={blog.image[0]?.url} alt="blog_image" />
                 <figcaption>{blog.figCaption}</figcaption>
               </figure>
               <p>{blog.desc.substr(161)}</p>

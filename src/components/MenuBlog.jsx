@@ -11,11 +11,7 @@ const BlogMenu = ({ style, reloadScript, reload }) => {
               <nav className="">
                 <ul>
                   <li>
-                    <Link
-                      to="/"
-                      style={{ ...style }}
-                      onClick={() => reloadScript(reload + 1)}
-                    >
+                    <Link to="/" style={{ ...style }}>
                       Portfolio
                     </Link>
                   </li>
@@ -27,7 +23,6 @@ const BlogMenu = ({ style, reloadScript, reload }) => {
                         color: "#4a4a4a",
                         textDecoration: "underline",
                       }}
-                      onClick={() => reloadScript(reload + 1)}
                     >
                       blog
                     </Link>
@@ -53,10 +48,7 @@ const BlogMenu = ({ style, reloadScript, reload }) => {
 
       <div className="mobile-menu d-lg-none">
         <div className="container">
-          <div
-            className="mobile-menu__close"
-            onClick={() => reloadScript(reload + 1)}
-          >
+          <div className="mobile-menu__close">
             <span>
               <i className="mdi mdi-close" aria-hidden="true"></i>
             </span>
@@ -64,20 +56,12 @@ const BlogMenu = ({ style, reloadScript, reload }) => {
           <nav className="mobile-menu__wrapper">
             <ul>
               <li>
-                <Link
-                  to="/"
-                  style={{ ...style }}
-                  onClick={() => reloadScript(reload + 1)}
-                >
+                <Link to="/" style={{ ...style }}>
                   Portfolio
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/blog"
-                  style={{ ...style, color: "#4a4a4a" }}
-                  onClick={() => reloadScript(reload + 1)}
-                >
+                <Link to="/blog" style={{ ...style, color: "#4a4a4a" }}>
                   blog
                 </Link>
               </li>

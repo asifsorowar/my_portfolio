@@ -17,11 +17,9 @@ import { getMyInfos, getMyProfilePicture } from "./service/myInfoService";
 import { useLocation } from "react-router-dom";
 import "./components/mainapp.css";
 import "react-toastify/dist/ReactToastify.css";
-import "bootstrap/dist/css/bootstrap.css";
 
 function App() {
   let [showScroll, setShowScroll] = useState("hidden");
-  let [scriptReset, setScriptReset] = useState(0);
   let [loaded, setLoaded] = useState(false);
   const [info, setInfo] = useState({});
   const [profileP, setProfileP] = useState("");
@@ -68,7 +66,7 @@ function App() {
         <Switch>
           <Route exact path="/">
             <SEO title="Home" />
-            <Menu reloadScript={setScriptReset} reload={scriptReset} />
+            <Menu />
             <Header info={info} profileP={profileP} setLoaded={setLoaded} />
             <About />
             <Resume />
@@ -77,11 +75,7 @@ function App() {
           </Route>
           <Route path="/blog">
             <SEO title="Blog" />
-            <BlogMenu
-              style={{ color: "darkgray" }}
-              reloadScript={setScriptReset}
-              reload={scriptReset}
-            />
+            <BlogMenu style={{ color: "darkgray" }} />
             <Blog setLoaded={setLoaded} />
           </Route>
         </Switch>

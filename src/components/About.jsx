@@ -31,7 +31,7 @@ const About = () => {
             scripting languages and multimedia Web tools.
           </p>
           <a
-            href={process.env.REACT_APP_API_URL + cvUrl}
+            href={cvUrl}
             target="_blank"
             rel="noreferrer"
             className="section_btn site-btn"

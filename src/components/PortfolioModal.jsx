@@ -26,7 +26,7 @@ const PortfolioModal = ({ project, setSelectedProject }) => {
             <p className="portfolio-modal__title">{project.name}</p>
             <img
               className="portfolio-modal__img"
-              src={process.env.REACT_APP_API_URL + project.image.url}
+              src={project.image.url}
               alt="modal_img"
             />
             <p className="portfolio-modal__description">{project.desc}</p>

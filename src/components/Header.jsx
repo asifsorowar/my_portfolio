@@ -1,14 +1,11 @@
 import React from "react";
 
 const Header = ({ info, profileP, setLoaded }) => {
-  console.log(process.env.REACT_APP_API_URL + profileP);
-
   return (
     <div
       className="main-header"
       style={{
-        backgroundImage:
-          "url(" + process.env.REACT_APP_API_URL + profileP + ")",
+        backgroundImage: "url(" + profileP + ")",
         backgroundPosition: "center -25px",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
@@ -20,7 +17,7 @@ const Header = ({ info, profileP, setLoaded }) => {
             <img
               className=""
               style={{ objectFit: "cover", width: "100%", height: "100%" }}
-              src={process.env.REACT_APP_API_URL + profileP}
+              src={profileP}
               alt="asif-sorowar-profile"
               onLoad={setLoaded(true)}
             />

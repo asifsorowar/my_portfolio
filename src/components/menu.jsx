@@ -26,12 +26,7 @@ const Menu = ({ style, reloadScript, reload }) => {
                     </a>
                   </li>
                   <li>
-                    <Link
-                      to="/blog"
-                      className="blogNav"
-                      style={{ ...style }}
-                      onClick={() => reloadScript(reload + 1)}
-                    >
+                    <Link to="/blog" className="blogNav" style={{ ...style }}>
                       blog
                     </Link>
                   </li>
@@ -44,11 +39,7 @@ const Menu = ({ style, reloadScript, reload }) => {
               </nav>
             </div>
             <div className="menu__wrapper col-md-12 d-lg-none">
-              <button
-                type="button"
-                className="menu__mobile-button"
-                onClick={() => reloadScript(reload + 1)}
-              >
+              <button type="button" className="menu__mobile-button">
                 <span>
                   <i className="fa fa-bars" aria-hidden="true"></i>
                 </span>
@@ -60,10 +51,7 @@ const Menu = ({ style, reloadScript, reload }) => {
 
       <div className="mobile-menu d-lg-none">
         <div className="container">
-          <div
-            className="mobile-menu__close"
-            onClick={() => reloadScript(reload + 1)}
-          >
+          <div className="mobile-menu__close">
             <span>
               <i className="mdi mdi-close" aria-hidden="true"></i>
             </span>

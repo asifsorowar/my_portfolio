@@ -74,11 +74,7 @@ const Portfolio = () => {
               onClick={() => setSelectedProject(project)}
             >
               <div className="col-md-6 col-lg-5 project-card__img">
-                <img
-                  className=""
-                  src={process.env.REACT_APP_API_URL + project.image.url}
-                  alt="project-img"
-                />
+                <img className="" src={project.image.url} alt="project-img" />
               </div>
               <div className="col-md-6 col-lg-7 project-card__info">
                 <h3 className="project-card__title">{project.title}</h3>
