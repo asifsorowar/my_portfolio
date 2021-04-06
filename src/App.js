@@ -14,8 +14,10 @@ import BlogMenu from "./components/MenuBlog";
 import Loader from "react-loader";
 import Blog from "./components/Blog";
 import { getMyInfos, getMyProfilePicture } from "./service/myInfoService";
+import { useLocation } from "react-router-dom";
 import "./components/mainapp.css";
 import "react-toastify/dist/ReactToastify.css";
+import "bootstrap/dist/css/bootstrap.css";
 
 function App() {
   let [showScroll, setShowScroll] = useState("hidden");
@@ -23,6 +25,7 @@ function App() {
   let [loaded, setLoaded] = useState(false);
   const [info, setInfo] = useState({});
   const [profileP, setProfileP] = useState("");
+  let { pathname } = useLocation();
 
   const loadHeaderData = async () => {
     const { data: info } = await getMyInfos();
@@ -33,13 +36,12 @@ function App() {
 
   useEffect(() => {
     setLoaded(false);
-    load();
     loadHeaderData();
   }, []);
 
   useEffect(() => {
     load();
-  }, [scriptReset]);
+  }, [pathname]);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
