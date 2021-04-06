@@ -68,9 +68,7 @@ const Menu = ({ style, reloadScript, reload }) => {
                 <a href="#portfolio">Portfolio</a>
               </li>
               <li>
-                <Link to="/blog" onClick={() => reloadScript(reload + 1)}>
-                  blog
-                </Link>
+                <Link to="/blog">blog</Link>
               </li>
               <li>
                 <a href="#contact">Contact</a>
