@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { getResumes } from "./../service/resumeService";
+import {
+  getResumes,
+  getOtherSkills,
+  getEmployment,
+} from "./../service/resumeService";
 import { getEducations } from "./../service/educationService";
 import { getLanguages } from "./../service/languageService";
 import { getAboutDesc } from "./../service/aboutDesc";
@@ -9,6 +13,8 @@ const Resume = () => {
   const [resumes, setResumes] = useState([]);
   const [educations, setEducations] = useState([]);
   const [languages, setLanguages] = useState([]);
+  const [otherSkills, setOtherSkills] = useState([]);
+  const [employments, setEmployments] = useState([]);
   const [about, setAbout] = useState("");
 
   const loadData = async () => {
@@ -24,6 +30,13 @@ const Resume = () => {
 
     const { data: about } = await getAboutDesc();
     setAbout(about);
+
+    const { data: otherSkills } = await getOtherSkills();
+    setOtherSkills(otherSkills);
+
+    const { data: employments } = await getEmployment();
+    const sortedEmployments = _.orderBy(employments, "id", "desc");
+    setEmployments(sortedEmployments);
   };
 
   useEffect(() => {
@@ -55,36 +68,55 @@ const Resume = () => {
           ))}
         </div>
       </div>
-      {/* <div className="row">
-        <div className="col-md-8 section__resume resume-list">
-          <h3 className="resume-list_title">employment</h3>
-          <div className="resume-list__block">
-            <p className="resume-list__block-title">Apple</p>
-            <p className="resume-list__block-date">2006 - 2010</p>
-            <p>Senior Full Stack Developer</p>
-          </div>
-          <div className="resume-list__block">
-            <p className="resume-list__block-title">Tech university</p>
-            <p className="resume-list__block-date">2004 - 2005</p>
-            <p>
-              Awesome developer, lorem ipsum dolor sit amet, conse ctetur
-              adipisicing elit, sed do eius- mod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis
-            </p>
-          </div>
-          <div className="resume-list__block">
-            <p className="resume-list__block-title">Molly’s studio</p>
-            <p className="resume-list__block-date">2003 - 2006</p>
-            <p>
-              Programmer Lorem ipsum dolor sit amet, consecte tur adipisicing
-              elit, sed do eiusmod tempor incididunt ut
-            </p>
+      {employments.length > 0 && (
+        <div className="row">
+          <div className="col-md-8 section__resume resume-list">
+            <h3 className="resume-list_title">employment</h3>
+            {employments.map((employment) => (
+              <div className="resume-list__block" key={employment.id}>
+                <p className="resume-list__block-title">{employment.name}</p>
+                <p className="resume-list__block-date">{employment.years}</p>
+                <p>{employment.description}</p>
+              </div>
+            ))}
           </div>
         </div>
-      </div> */}
+      )}
       <div className="row section__resume progress-list js-progress-list">
         <div className="col-md-12">
-          <h3 className="progress-list__title">general skills</h3>
+          <h3 className="progress-list__title">Programming Languages</h3>
+        </div>
+        {languages.map((language) => (
+          <div key={language.id} className="col-md-5 mr-auto">
+            <div className="progress-list__skill">
+              <p>
+                <span className="progress-list__skill-title">
+                  {language.title}
+                </span>
+                <span
+                  className="progress-list__skill-value"
+                  style={{ fontSize: "11px" }}
+                >
+                  {language.skill_level?.level}
+                </span>
+              </p>
+              <div className="progress">
+                <div
+                  className="progress-bar"
+                  role="progressbar"
+                  aria-valuenow={language.value}
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="row section__resume progress-list js-progress-list">
+        <div className="col-md-12">
+          <h3 className="progress-list__title">Programming related skills</h3>
         </div>
         {resumes.map((resume) => (
           <div key={resume.id} className="col-md-5 mr-auto">
@@ -93,8 +125,11 @@ const Resume = () => {
                 <span className="progress-list__skill-title">
                   {resume.title}
                 </span>
-                <span className="progress-list__skill-value">
-                  {resume.value}%
+                <span
+                  className="progress-list__skill-value"
+                  style={{ fontSize: "11px" }}
+                >
+                  {resume.skill_level?.level}
                 </span>
               </p>
               <div className="progress">
@@ -113,24 +148,24 @@ const Resume = () => {
 
       <div className="row section__resume progress-list js-progress-list">
         <div className="col-md-12">
-          <h3 className="progress-list__title">Languages</h3>
+          <h3 className="progress-list__title">Other skills</h3>
         </div>
-        {languages.map((language) => (
-          <div key={language.id} className="col-md-5 mr-auto">
+        {otherSkills.map((skill) => (
+          <div key={skill.id} className="col-md-5 mr-auto">
             <div className="progress-list__skill">
               <p>
                 <span className="progress-list__skill-title">
-                  {language.title}
+                  {skill.title}
                 </span>
                 <span className="progress-list__skill-value">
-                  {language.value}%
+                  {skill.value}%
                 </span>
               </p>
               <div className="progress">
                 <div
                   className="progress-bar"
                   role="progressbar"
-                  aria-valuenow={language.value}
+                  aria-valuenow={skill.value}
                   aria-valuemin="0"
                   aria-valuemax="100"
                 ></div>
