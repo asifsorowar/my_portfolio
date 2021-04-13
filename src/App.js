@@ -52,7 +52,7 @@ function App() {
   let { pathname } = useLocation();
 
   const loadData = async () => {
-    setLoaded(true);
+    setLoaded(false);
 
     const { data: info } = await getMyInfos();
     setInfo(info[0]);
@@ -81,7 +81,7 @@ function App() {
     const shuffledSkills = _.shuffle(skills);
     setSkills(shuffledSkills);
 
-    setLoaded(false);
+    setLoaded(true);
 
     Aos.init();
   };
@@ -105,7 +105,7 @@ function App() {
   return (
     <>
       <ToastContainer />
-      {loaded && (
+      {!loaded && (
         <div
           style={{
             position: "fixed",
@@ -127,7 +127,7 @@ function App() {
             }}
           >
             <Loader
-              visible={loaded}
+              visible={!loaded}
               type="Grid"
               color="#4a4a4a"
               height={200}
