@@ -1,23 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { getCv } from "./../service/myInfoService";
-import { getMyInfos } from "../service/myInfoService";
+import React from "react";
 
-const About = () => {
-  const [cv, setCv] = useState(null);
-  const [info, setInfo] = useState(null);
-
-  const loadData = async () => {
-    const { data: cv } = await getCv();
-
-    const { data: info } = await getMyInfos();
-    setCv(cv);
-    setInfo(info[0]);
-  };
-
-  useEffect(() => {
-    loadData();
-  }, []);
-
+const About = ({ cv, info }) => {
   return (
     <section id="about" className="container section">
       <div className="row">

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const BlogMenu = ({ style, reloadScript, reload }) => {
+const BlogMenu = ({ style }) => {
   return (
     <React.Fragment>
       <div className="menu">
@@ -35,7 +35,6 @@ const BlogMenu = ({ style, reloadScript, reload }) => {
                 type="button"
                 className="menu__mobile-button"
                 style={{ ...style, color: "#4a4a4a" }}
-                onClick={() => reloadScript(reload + 1)}
               >
                 <span>
                   <i className="fa fa-bars" aria-hidden="true"></i>

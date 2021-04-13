@@ -1,17 +1,16 @@
 import http from "./http";
 
-const apiEndPoint = "/resumes";
-
-export const getResumes = () => {
-  return http.get(apiEndPoint);
-};
-
-export const getOtherSkills = () => {
-  const apiEndPoint = "/other-skills";
-  return http.get(apiEndPoint);
-};
-
 export const getEmployment = () => {
   const apiEndPoint = "/employments";
+  return http.get(apiEndPoint);
+};
+
+export const getSkillLabels = () => {
+  const apiEndPoint = "/skill-labels";
+  return http.get(apiEndPoint);
+};
+
+export const getSkills = () => {
+  const apiEndPoint = "skills";
   return http.get(apiEndPoint);
 };

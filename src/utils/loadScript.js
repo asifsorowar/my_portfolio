@@ -11,10 +11,7 @@ export const load = () => {
   addScript("bootstrap.min.js");
   addScript("menu.js");
   addScript("jquery.waypoints.js");
-  addScript("progress-list.js");
   addScript("section.js");
-  addScript("portfolio-filter.js");
-  addScript("slider-carousel.js");
   addScript("mobile-menu.js");
   addScript("contacts.js");
   addScript("mbclicker.min.js");

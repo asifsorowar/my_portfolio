@@ -1,5 +1,3 @@
-"use strict";
-
 //Validation forms
 function validateForm(selector) {
   Array.from(document.querySelectorAll(selector)).forEach((item) => {

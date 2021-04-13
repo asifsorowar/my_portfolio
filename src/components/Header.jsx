@@ -1,6 +1,6 @@
 import React from "react";
 
-const Header = ({ info, profileP, setLoaded }) => {
+const Header = ({ info, profileP }) => {
   return (
     <div
       className="main-header"
@@ -19,7 +19,6 @@ const Header = ({ info, profileP, setLoaded }) => {
               style={{ objectFit: "cover", width: "100%", height: "100%" }}
               src={profileP}
               alt="asif-sorowar-profile"
-              onLoad={setLoaded(true)}
             />
           </div>
           <div className="col-md-8">
