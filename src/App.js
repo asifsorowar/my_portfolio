@@ -3,6 +3,7 @@ import { load } from "./utils/loadScript";
 import { ToastContainer } from "react-toastify";
 import { Switch, Route } from "react-router";
 import { useLocation } from "react-router-dom";
+import Loader from "react-loader-spinner";
 import Aos from "aos";
 
 import SEO from "./components/seo";
@@ -14,7 +15,6 @@ import Portfolio from "./components/Portfolio";
 import Contact from "./components/Contact";
 import ScrollButton from "./components/scrollButton";
 import BlogMenu from "./components/MenuBlog";
-import Loader from "react-loader";
 import Blog from "./components/Blog";
 
 import {
@@ -33,11 +33,12 @@ import _ from "lodash";
 
 import "./components/mainapp.css";
 import "react-toastify/dist/ReactToastify.css";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "aos/dist/aos.css";
 
 function App() {
   let [showScroll, setShowScroll] = useState("hidden");
-  let [loaded, setLoaded] = useState(false);
+  let [loaded, setLoaded] = useState(true);
   const [info, setInfo] = useState({});
   const [profileP, setProfileP] = useState("");
   const [cv, setCv] = useState(null);
@@ -51,7 +52,7 @@ function App() {
   let { pathname } = useLocation();
 
   const loadData = async () => {
-    setLoaded(false);
+    setLoaded(true);
 
     const { data: info } = await getMyInfos();
     setInfo(info[0]);
@@ -80,7 +81,7 @@ function App() {
     const shuffledSkills = _.shuffle(skills);
     setSkills(shuffledSkills);
 
-    setLoaded(true);
+    setLoaded(false);
 
     Aos.init();
   };
@@ -104,24 +105,44 @@ function App() {
   return (
     <>
       <ToastContainer />
-      <Loader
-        loaded={loaded}
-        className="spinner"
-        data-aos="zoom-in"
-        opacity={0.5}
-        options={{
-          scale: 6,
-          top: "50%",
-          left: "50%",
-        }}
-      />
+      {loaded && (
+        <div
+          style={{
+            position: "fixed",
+            top: "0",
+            left: "0",
+            width: "100vw",
+            height: "100vh",
+            backgroundColor: "rgba(255, 255, 255, .7)",
+            zIndex: 888,
+          }}
+        >
+          <div
+            style={{
+              position: "fixed",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              zIndex: 999,
+            }}
+          >
+            <Loader
+              visible={loaded}
+              type="Grid"
+              color="#4a4a4a"
+              height={200}
+              width={200}
+            />
+          </div>
+        </div>
+      )}
       <div>
         <ScrollButton show={showScroll} />
         <Switch>
           <Route exact path="/">
             <SEO title="Home" />
             <Menu />
-            <Header info={info} profileP={profileP} setLoaded={setLoaded} />
+            <Header info={info} profileP={profileP} />
             <About cv={cv} info={info} />
             <Resume
               about={about}

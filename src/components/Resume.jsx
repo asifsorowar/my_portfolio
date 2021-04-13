@@ -80,6 +80,7 @@ const Resume = ({ about, educations, employments, skillLabels, skills }) => {
                     <div
                       className="progress-bar"
                       data-aos="slide-right"
+                      data-aos-once="true"
                       role="progressbar"
                       aria-valuenow={skill.value}
                       aria-valuemin="0"

@@ -50,7 +50,11 @@ const Portfolio = () => {
             <nav>
               <ul>
                 {projectCategories.map((category) => (
-                  <li key={category.id || category.name} data-aos="flip-up">
+                  <li
+                    key={category.id || category.name}
+                    data-aos="flip-up"
+                    data-aos-once="true"
+                  >
                     <span
                       style={{
                         color: setActive(category),
