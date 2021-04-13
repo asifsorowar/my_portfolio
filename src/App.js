@@ -3,6 +3,8 @@ import { load } from "./utils/loadScript";
 import { ToastContainer } from "react-toastify";
 import { Switch, Route } from "react-router";
 import { useLocation } from "react-router-dom";
+import Aos from "aos";
+
 import SEO from "./components/seo";
 import Menu from "./components/menu";
 import Header from "./components/Header";
@@ -31,6 +33,7 @@ import _ from "lodash";
 
 import "./components/mainapp.css";
 import "react-toastify/dist/ReactToastify.css";
+import "aos/dist/aos.css";
 
 function App() {
   let [showScroll, setShowScroll] = useState("hidden");
@@ -78,6 +81,8 @@ function App() {
     setSkills(shuffledSkills);
 
     setLoaded(true);
+
+    Aos.init();
   };
 
   useEffect(() => {
@@ -102,6 +107,7 @@ function App() {
       <Loader
         loaded={loaded}
         className="spinner"
+        data-aos="zoom-in"
         opacity={0.5}
         options={{
           scale: 6,

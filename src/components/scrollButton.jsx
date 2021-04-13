@@ -3,6 +3,7 @@ import React from "react";
 const ScrollButton = ({ show }) => {
   return (
     <div
+      data-aos="fade"
       style={{
         background: "#4a4a4a",
         position: "fixed",

@@ -50,7 +50,7 @@ const Portfolio = () => {
             <nav>
               <ul>
                 {projectCategories.map((category) => (
-                  <li key={category.id || category.name}>
+                  <li key={category.id || category.name} data-aos="flip-up">
                     <span
                       style={{
                         color: setActive(category),
@@ -72,6 +72,7 @@ const Portfolio = () => {
               className="row project-card"
               data-toggle="modal"
               data-target="#portfolioModal"
+              data-aos="fade-zoom-in"
               key={project.id}
               onClick={() => setSelectedProject(project)}
             >

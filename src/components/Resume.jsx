@@ -27,7 +27,9 @@ const Resume = ({ about, educations, employments, skillLabels, skills }) => {
             <h3 className="resume-list_title">education</h3>
             {educations.map((edu) => (
               <div key={edu.id} className="resume-list__block">
-                <p className="resume-list__block-title">{edu.name} </p>
+                <p className="resume-list__block-title" data-aos="flip-up">
+                  {edu.name}{" "}
+                </p>
                 <p className="resume-list__block-date">{edu.years}</p>
                 <p>{edu.description}</p>
               </div>
@@ -40,7 +42,9 @@ const Resume = ({ about, educations, employments, skillLabels, skills }) => {
               <h3 className="resume-list_title">employment</h3>
               {employments.map((employment) => (
                 <div className="resume-list__block" key={employment.id}>
-                  <p className="resume-list__block-title">{employment.name}</p>
+                  <p className="resume-list__block-title" data-aos="flip-up">
+                    {employment.name}
+                  </p>
                   <p className="resume-list__block-date">{employment.years}</p>
                   <p>{employment.description}</p>
                 </div>
@@ -59,7 +63,7 @@ const Resume = ({ about, educations, employments, skillLabels, skills }) => {
             {getFilteredSkills(skillLabel).map((skill) => (
               <div key={skill.id} className="col-md-5 mr-auto">
                 <div className="progress-list__skill">
-                  <p>
+                  <p data-aos="fade-zoom-in">
                     <span className="progress-list__skill-title">
                       {skill.title}
                     </span>
@@ -75,6 +79,7 @@ const Resume = ({ about, educations, employments, skillLabels, skills }) => {
                   <div className="progress">
                     <div
                       className="progress-bar"
+                      data-aos="slide-right"
                       role="progressbar"
                       aria-valuenow={skill.value}
                       aria-valuemin="0"
