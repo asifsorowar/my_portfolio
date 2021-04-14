@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { load } from "./utils/loadScript";
+import useScript from "./hooks/useScript";
 import { ToastContainer } from "react-toastify";
 import { Switch, Route } from "react-router";
 import { useLocation } from "react-router-dom";
 import Loader from "react-loader-spinner";
 import Aos from "aos";
+import _ from "lodash";
 
 import SEO from "./components/seo";
 import Menu from "./components/menu";
@@ -29,7 +30,6 @@ import {
 } from "./service/resumeService";
 import { getEducations } from "./service/educationService";
 import { getAboutDesc } from "./service/aboutDesc";
-import _ from "lodash";
 
 import "./components/mainapp.css";
 import "react-toastify/dist/ReactToastify.css";
@@ -37,6 +37,18 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "aos/dist/aos.css";
 
 function App() {
+  let { pathname } = useLocation();
+  const publicUrl = process.env.PUBLIC_URL;
+  useScript(publicUrl + "/js/jquery-2.2.4.min.js", pathname);
+  useScript(publicUrl + "/js/popper.min.js", pathname);
+  useScript(publicUrl + "/js/bootstrap.min.js", pathname);
+  useScript(publicUrl + "/js/menu.js", pathname);
+  useScript(publicUrl + "/js/jquery.waypoints.js", pathname);
+  useScript(publicUrl + "/js/section.js", pathname);
+  useScript(publicUrl + "/js/mobile-menu.js", pathname);
+  useScript(publicUrl + "/js/contacts.js", pathname);
+  useScript(publicUrl + "/js/mbclicker.min.js", pathname);
+
   let [showScroll, setShowScroll] = useState("hidden");
   let [loaded, setLoaded] = useState(true);
   const [info, setInfo] = useState({});
@@ -48,8 +60,6 @@ function App() {
   const [employments, setEmployments] = useState([]);
   const [skillLabels, setSkillLabels] = useState([]);
   const [skills, setSkills] = useState([]);
-
-  let { pathname } = useLocation();
 
   const loadData = async () => {
     setLoaded(false);
@@ -89,10 +99,6 @@ function App() {
   useEffect(() => {
     loadData();
   }, []);
-
-  useEffect(() => {
-    load();
-  }, [pathname]);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
