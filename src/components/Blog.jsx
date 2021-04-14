@@ -8,16 +8,16 @@ const Blog = ({ setLoaded }) => {
   const [selectedBlog, setSelectedBlog] = useState(null);
 
   const loadData = async () => {
+    setLoaded(false);
     const { data: blogs } = await loadBlogs();
     const latestBlogs = _.orderBy(blogs, "published_at", "desc");
     setBlogs(latestBlogs);
+    setLoaded(true);
   };
 
   useEffect(() => {
-    setLoaded(false);
     loadData();
-    setLoaded(true);
-  }, [blogs]);
+  }, []);
 
   const shortText = (desc) => {
     return desc.substr(0, 120) + ".....";

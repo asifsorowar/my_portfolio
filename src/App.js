@@ -87,7 +87,6 @@ function App() {
   };
 
   useEffect(() => {
-    setLoaded(false);
     loadData();
   }, []);
 

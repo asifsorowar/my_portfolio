@@ -6,11 +6,7 @@ const addScript = (url) => {
 };
 
 export const load = () => {
-  addScript("jquery-2.2.4.min.js");
-  addScript("popper.min.js");
-  addScript("bootstrap.min.js");
   addScript("menu.js");
-  addScript("jquery.waypoints.js");
   addScript("section.js");
   addScript("mobile-menu.js");
   addScript("contacts.js");
